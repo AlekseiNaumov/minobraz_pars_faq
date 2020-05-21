@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup as BS
 import json
 
 i = 0
+x = 0
 database_faq = {}
 
 
@@ -37,10 +38,12 @@ for num_link in range(170, 321):
 
     else:
         print(f'Что-то пошло не так на странице: {link}')
-
+        x += 1
+        
 # print(database_faq)
 
 with open('file_base', 'w', encoding='utf-8') as file:
     json_base = json.dump(database_faq, file)
 
 
+print(f"OK! Обработано {i} страниц. Нет контента на {x} страницах")
